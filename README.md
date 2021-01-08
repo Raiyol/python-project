@@ -2,6 +2,13 @@
 
 Projet final en Python for Data Analyst
 
+## Sommaire
+
+- **[Dataset](#dataset)**
+- **[Data Visualisation](#Data-Visualisation)**
+- **[Modélisation](#Modélisation)**
+- **[Django API](#Django-API)**
+
 ## Dataset
 
 Le dataset : <https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand>
