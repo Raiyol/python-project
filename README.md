@@ -27,7 +27,7 @@ Le dataset contient ces informations :
 | Holiday               | Holiday/No holiday                                  |
 | Functional Day        | NoFunc(Non Functional Hours), Fun(Functional hours) |
 
-La valeur dont nous avons besoin de prédire est "Rented Bike count".
+
 
 Le fichier csv original n'est pas en encoding utf-8, j'ai donc du d'abord changer l'encoding du fichier en utf-8 pour ensuite pouvoir l'utiliser.
 
@@ -38,3 +38,40 @@ Les changements sur les données qualitatif en quantitatif pour le machine learn
 | Seasons        | Winter = 1, Spring = 2, Summer = 3, Autumn = 4 |
 | Holiday        | No Holiday = 0, Holiday = 1                    |
 | Functional Day | No = 0, Yes = 1                                |
+
+La valeur dont nous avons besoin de prédire est "Rented Bike count", le nombre de vélos loués à Séoul à chaque heure de la journée.
+
+L'objectif est d'avoir : 
+
+1- un PowerPoint au format PDF contenant la démarche et les résultats de notre analyse et de nos modèles.
+
+2- Deux fichier Jupyter Python contenant le code de data visualisation et de modeling
+
+3- Une API Django
+
+
+#
+## Data Visualisation
+
+
+
+![rented bike](images\1.png)
+
+![rented bike](images\2.png)
+
+![rented bike](images\3.png)
+
+![rented bike](images\4.png)
+
+![rented bike](images\5.png)
+
+![rented bike](images\6.png)
+
+![rented bike](images\7.png)
+
+![rented bike](images\8.png)
+
+![rented bike](images\9.png)
+
+#
+##
