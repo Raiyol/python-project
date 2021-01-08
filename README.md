@@ -27,8 +27,6 @@ Le dataset contient ces informations :
 | Holiday               | Holiday/No holiday                                  |
 | Functional Day        | NoFunc(Non Functional Hours), Fun(Functional hours) |
 
-
-
 Le fichier csv original n'est pas en encoding utf-8, j'ai donc du d'abord changer l'encoding du fichier en utf-8 pour ensuite pouvoir l'utiliser.
 
 Les changements sur les données qualitatif en quantitatif pour le machine learning sont :
@@ -41,7 +39,7 @@ Les changements sur les données qualitatif en quantitatif pour le machine learn
 
 La valeur dont nous avons besoin de prédire est "Rented Bike count", le nombre de vélos loués à Séoul à chaque heure de la journée.
 
-L'objectif est d'avoir : 
+L'objectif est d'avoir :
 
 1- un PowerPoint au format PDF contenant la démarche et les résultats de notre analyse et de nos modèles.
 
@@ -49,29 +47,104 @@ L'objectif est d'avoir :
 
 3- Une API Django
 
-
-#
 ## Data Visualisation
 
+![viz1](./images/1.png)
 
+![viz2](./images/2.png)
 
-![rented bike](images\1.png)
+![viz3](./images/3.png)
 
-![rented bike](images\2.png)
+![viz4](./images/4.png)
 
-![rented bike](images\3.png)
+![viz5](./images/5.png)
 
-![rented bike](images\4.png)
+![viz6](./images/6.png)
 
-![rented bike](images\5.png)
+![viz7](./images/7.png)
 
-![rented bike](images\6.png)
+![viz8](./images/8.png)
 
-![rented bike](images\7.png)
+![viz9](./images/9.png)
 
-![rented bike](images\8.png)
+## Modélisation
 
-![rented bike](images\9.png)
+Nous avons tester 6 algorithmes pour voir quelles étaient le plus performant sur notre dataset. De plus nous avons comparé 2 jeux de données d'entrée différents. Les deux jeux de données ont les lignes avec Functionning day = 0 supprimé et la colonne supprimé.
 
-#
-##
+Les jeux de données :
+
+- L'original, avec la colonne date en moins
+- Les variables qui sont ressorties et crées lors de la partie Data-visualisation
+
+Les algorithmes :
+
+- Logistic Regression​
+- Linear Regression​
+- SVR​
+- SVC​
+- K Nearest Neighbour​
+- Random Forest Classifier
+
+Le graphique des scores que nous obtenons :
+
+- bleu : Dataset Orignal
+- orange : Dataset Modifié
+
+![modele](./images/modele.png)
+
+Deux algorithmes ressortent du lots et sont _Linear Regression_ et _SVR_. On remarque aussi que les scores sont légèrement plus élevé avec le Dataset modifié.
+
+Nous allons donc utilisé le Scaler et le modèle SVR du dataset modifié pour faire l'API Django.
+
+## Django API
+
+Pour lancer l'API, déplacez vous d'abord dans le répertoire :
+
+```text
+cd api_django
+```
+
+Et pour lancer le serveur :
+
+```text
+python manage.py runserver
+```
+
+Le serveur s'est normalement lancé sur <http://localhost:8000>
+
+Vous pouvez maintenant tester les routes avec des applications tels que Postman, Insomna ou curl.
+
+Les routes :
+
+| Méthode | Route     | Détail                                                          |
+| ------- | --------- | --------------------------------------------------------------- |
+| GET     | /bikes    | Liste de toutes les données                                     |
+| POST    | /bikes    | Ajouté une ligne de donnée                                      |
+| GET     | /bike/x/  | x un numéro, pour une ligne de donnée précise                   |
+| DELETE  | /bike/x/  | x un numéro, supprimé la ligne avec ce numéro​                  |
+| POST    | /predict/ | Prédire le nombre de vélo avec le modèle que nous avions fait.​ |
+
+Un exemple du corps des requête POST, laisser RBC tel quel si c'est pour une prédiction :
+
+```json
+{
+  "Hour": 2,
+  "Temperature": 24,
+  "Humidity": 40,
+  "WS": 1,
+  "Visibility": 1500,
+  "SR": 0,
+  "Rainfall": 0,
+  "Snowfall": 0,
+  "Holiday": 0,
+  "Seasons": 3,
+  "WD": 1,
+  "Month": 9,
+  "RBC": -1
+}
+```
+
+- WS : Windspeed
+- SR : Solar Radiation
+- WD : Jour ouvré (jour de semaine ou pas) = 1, 0 sinon
+- RBC : Rented Bike Count (Nombre de vélo loué)
