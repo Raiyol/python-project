@@ -4,7 +4,7 @@ Projet final en Python for Data Analyst
 
 ## Dataset
 
-Mon dataset : <https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand>
+Le dataset : <https://archive.ics.uci.edu/ml/datasets/Seoul+Bike+Sharing+Demand>
 
 Avec l'introduction des vélos à loué en ville qui ont permis l'amélioration de la mobilité, on cherche à savoir/prédire le nombre de vélo qui doivent être disponible à toute heure de la journée.
 
@@ -84,9 +84,11 @@ De même, la saison a un effet important et allons créer une variable quantitat
 
 La matrice de correlation nous donne comme information la confirmation de l'importance de certaines variables.
 
+Le fichier jupyter avec plus de détail est [datavis.ipynb](https://github.com/Raiyol/python-project/blob/main/datavis.ipynb).
+
 ## Modélisation
 
-Nous avons tester 6 algorithmes pour voir quelles étaient le plus performant sur notre dataset. De plus nous avons comparé 2 jeux de données d'entrée différents. Les deux jeux de données ont les lignes avec Functionning day = 0 supprimé et la colonne supprimé.
+Nous avons tester 6 algorithmes pour voir quelles étaient le plus performant sur notre dataset. De plus nous avons comparé 2 jeux de données d'entrée différents. Les deux jeux de données ont les lignes avec Functioning day = 0 supprimé et la colonne supprimé.
 
 Les jeux de données :
 
@@ -113,6 +115,8 @@ Deux algorithmes ressortent du lots et sont _Linear Regression_ et _SVR_. On rem
 
 Nous allons donc utilisé le Scaler et le modèle SVR du dataset modifié pour faire l'API Django.
 
+Le fichier jupyter avec plus de détail est [ml.ipynb](https://github.com/Raiyol/python-project/blob/main/ml.ipynb)
+
 ## Django API
 
 Pour lancer l'API, déplacez vous d'abord dans le répertoire :
@@ -129,7 +133,7 @@ python manage.py runserver
 
 Le serveur s'est normalement lancé sur <http://localhost:8000>
 
-Vous pouvez maintenant tester les routes avec des applications tels que Postman, Insomna ou curl.
+Vous pouvez maintenant tester les routes avec des applications tels que Postman, Insomnia ou curl.
 
 Les routes :
 
