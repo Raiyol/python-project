@@ -169,3 +169,5 @@ Un exemple du corps des requête POST, laisser RBC tel quel si c'est pour une pr
 - SR : Solar Radiation
 - WD : Jour ouvré (jour de semaine ou pas) = 1, 0 sinon
 - RBC : Rented Bike Count (Nombre de vélo loué)
+
+La route /predict/ renvoie le corps json envoyé mais avec RBC modifié. RBC aura la valeur prédite par le modèle que nous avions choisi en fonction du reste des données entrées. Ce json sera aussi sauvegarder dans la Base de données et visible sur la route /bikes
